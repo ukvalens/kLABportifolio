@@ -13,9 +13,54 @@ const projects = [
   { id: 11, title: "ExpertHub",                     desc: "A platform connecting experts and clients, built with PHP and MySQL.",                            lang: "PHP",        category: "backend",  demo: "", github: "https://github.com/ukvalens/ExpertHub" },
 ];
 
-const PROJECTS_VISIBLE = 6;
+const PROJECTS_PER_PAGE = 3;
+let currentProjectPage = 1;
 
-// --- BLOG DATA ---
+function renderProjects(filter) {
+  filter = filter || "all";
+  const grid = document.getElementById("projects-grid");
+  const filtered = filter === "all" ? projects : projects.filter(p => p.category === filter);
+  const totalPages = Math.ceil(filtered.length / PROJECTS_PER_PAGE);
+  if (currentProjectPage > totalPages) currentProjectPage = 1;
+  const start = (currentProjectPage - 1) * PROJECTS_PER_PAGE;
+  const paginated = filtered.slice(start, start + PROJECTS_PER_PAGE);
+
+  grid.innerHTML = paginated.map(p => `
+    <div class="project-card" data-id="${p.id}">
+      <div class="project-card-body">
+        <div class="project-lang-badge">${p.lang}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="project-links">
+          <a href="${p.github}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="${p.demo || '#'}" target="_blank" class="demo-link"><i class="fa fa-external-link-alt"></i> Live Demo</a>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  grid.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => openModal(card.dataset.id));
+  });
+
+  // Pagination dots
+  let dotsEl = document.getElementById("projects-pagination");
+  if (!dotsEl) {
+    dotsEl = document.createElement("div");
+    dotsEl.id = "projects-pagination";
+    dotsEl.className = "blog-pagination";
+    grid.parentNode.appendChild(dotsEl);
+  }
+  if (totalPages <= 1) { dotsEl.innerHTML = ''; return; }
+  dotsEl.innerHTML = Array.from({ length: totalPages }, (_, i) => `
+    <button class="blog-dot ${i + 1 === currentProjectPage ? 'active' : ''}" onclick="goToProjectPage(${i + 1}, '${filter}')"></button>
+  `).join('');
+}
+
+function goToProjectPage(page, filter) {
+  currentProjectPage = page;
+  renderProjects(filter);
+}
 const blogs = [
   {
     id: 1,
@@ -203,58 +248,12 @@ document.querySelectorAll('.blog-filter-btn').forEach(btn => {
   });
 });
 
-// --- RENDER PROJECTS ---
-let showAllProjects = false;
-
-function renderProjects(filter) {
-  filter = filter || "all";
-  const grid = document.getElementById("projects-grid");
-  const filtered = filter === "all" ? projects : projects.filter(p => p.category === filter);
-  const visible = showAllProjects ? filtered : filtered.slice(0, PROJECTS_VISIBLE);
-
-  grid.innerHTML = visible.map(p => `
-    <div class="project-card" data-id="${p.id}">
-      <div class="project-card-body">
-        <div class="project-lang-badge">${p.lang}</div>
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="project-links">
-          <a href="${p.github}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="${p.demo || '#'}" target="_blank" class="demo-link"><i class="fa fa-external-link-alt"></i> Live Demo</a>
-        </div>
-      </div>
-    </div>
-  `).join("");
-
-  grid.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", () => openModal(card.dataset.id));
-  });
-
-  let btn = document.getElementById("projects-toggle");
-  if (!btn) {
-    btn = document.createElement("div");
-    btn.id = "projects-toggle";
-    btn.style.cssText = "text-align:center;margin-top:1.5rem";
-    grid.parentNode.appendChild(btn);
-  }
-  if (filtered.length > PROJECTS_VISIBLE) {
-    btn.innerHTML = `<button class="btn btn-outline" style="border-color:var(--primary);color:var(--primary)" onclick="toggleProjects()">${showAllProjects ? 'Show Less' : 'Show More Projects'} <i class="fa fa-chevron-${showAllProjects ? 'up' : 'down'}"></i></button>`;
-  } else {
-    btn.innerHTML = '';
-  }
-}
-
-function toggleProjects() {
-  showAllProjects = !showAllProjects;
-  const activeFilter = document.querySelector('.filter-btn.active') ? document.querySelector('.filter-btn.active').dataset.filter : 'all';
-  renderProjects(activeFilter);
-}
-
 // --- FILTER ---
 document.querySelectorAll(".filter-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
+    currentProjectPage = 1;
     renderProjects(btn.dataset.filter);
   });
 });
