@@ -7,7 +7,7 @@ const projects = [
   { id: 5,  title: "Product Management",            desc: "Product management dashboard built with TypeScript for inventory and product tracking.",           lang: "TypeScript", category: "backend",  demo: "", github: "https://github.com/ukvalens/productmanagement" },
   { id: 6,  title: "Mothercare System",             desc: "Maternal healthcare management system for tracking patient records and appointments.",             lang: "PHP",        category: "backend",  demo: "", github: "https://github.com/ukvalens/mothercare" },
   { id: 7,  title: "IT Project",                    desc: "A web-based IT project built with HTML covering core web development concepts and structure.",     lang: "HTML",       category: "frontend", demo: "", github: "https://github.com/ukvalens/it-project" },
-  { id: 8,  title: "kLAB Portfolio",                desc: "This portfolio website built with HTML, CSS, and JavaScript featuring dark mode and animations.", lang: "HTML",       category: "frontend", demo: "", github: "https://github.com/ukvalens/kLABportifolio" },
+  { id: 8,  title: "MY Portfolio",                desc: "This portfolio website built with HTML, CSS, and JavaScript featuring dark mode and animations.", lang: "HTML",       category: "frontend", demo: "file:///E:/kLABportfolio/index.html#", github: "https://github.com/ukvalens/kLABportifolio" },
   { id: 9,  title: "GPA Calculator",                desc: "A web-based GPA calculator built with PHP to help students compute and track academic performance.", lang: "PHP",      category: "backend",  demo: "", github: "https://github.com/ukvalens/gpa" },
   { id: 10, title: "Crosswalk Game",                desc: "A fun crosswalk browser game built with HTML, CSS, and JavaScript.",                             lang: "HTML",       category: "frontend", demo: "", github: "https://github.com/ukvalens/game_croswalk" },
   { id: 11, title: "ExpertHub",                     desc: "A platform connecting experts and clients, built with PHP and MySQL.",                            lang: "PHP",        category: "backend",  demo: "", github: "https://github.com/ukvalens/ExpertHub" },
@@ -282,7 +282,7 @@ document.getElementById("project-modal").addEventListener("click", e => {
 
 // --- EXPERIENCE ---
 const experiences = [
-  { title: "Full Stack Software Development Trainee", meta: "kLab Academy — Kigali, Rwanda",              date: "30/03/2025 – 06/2025 (3 months)", desc: "Intensive full stack training covering modern frontend and backend technologies with project-based learning." },
+  { title: "Full Stack Software Development Trainee", meta: "kLab Academy — Kigali, Rwanda",              date: "30/03/2026 – PRESENT (3 months)", desc: "Intensive full stack training covering modern frontend and backend technologies with project-based learning." },
   { title: "ICT & Software Deployment Intern",        meta: "Rwanda Education Board (REB) — Kigali, Rwanda", date: "04/2025 – Present",               desc: "Deploying and configuring ICT devices via Microsoft Intune, installing software, and maintaining the asset database for educational technology support." },
   { title: "Software Developer Intern",               meta: "NIRDA — Kigali, Rwanda",                    date: "03/2025 – 05/2025",               desc: "Developed and maintained features for a Knowledge Management System (KMS) using PHP and MySQL." },
   { title: "Freelance Full-Stack Developer",          meta: "Self-Employed",                             date: "2022 – Present",                  desc: "Built and deployed custom web apps for clients using React, Node.js, MongoDB, Express.js and TypeScript." },
@@ -321,11 +321,11 @@ function goToExpPage(page) {
   renderExperience();
 }
 const testimonials = [
-  { name: "Dr. Jean Pierre Habimana", position: "Research Director, NIRDA — Kigali, Rwanda", text: "Valens delivered our Knowledge Management System with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
-  { name: "Eng. Alice Uwimana",       position: "ICT Manager, Rwanda Education Board (REB)",  text: "Valens configured and deployed ICT devices efficiently across our institution. He is reliable, detail-oriented, and a great team player." },
-  { name: "Patrick Niyonzima",        position: "Entrepreneur & Freelance Client",             text: "Working with Valens on our web application was a great experience. He understood our requirements quickly and built exactly what we needed." },
-  { name: "Marie Claire Ingabire",    position: "Full Stack Developer & Peer, kLab Academy",  text: "Valens is one of the most dedicated developers I have worked with. His PERN stack knowledge and problem-solving ability stand out." },
-  { name: "Mr. Eric Nshimiyimana",    position: "Software Engineering Instructor, kLab Academy", text: "As his instructor, I can confidently say Valens has exceptional technical skills and a strong passion for software development." },
+  { name: "Dr. Serge MBARAGA", position: "Director of Technology Monitoring and Knowledge Management Unit., NIRDA, Kigali, Rwanda", text: "Valens did internship with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
+  { name: "Mr. JMV TUYISHIME",       position: "Programmer and Animation Engineer, Rwanda Education Board (REB)",  text: "Valens configured and deployed ICT devices efficiently across our institution. He is reliable, detail-oriented, and a great team player." },
+  { name: "Theophile NIYIGABA",        position: "Computer ENGINEER Student, UNIVERSITY OF RWANDA",             text: "Working with Valens on web application was a great experience. He understood software requirements specification." },
+  { name: "Mr. Robert NIYITANGA",    position: "Developer and Technical facilitator, kLab Academy",  text: "Valens is committed to showing his skills. His PERN stack knowledge and problem-solving ability stand out." },
+  { name: "SUPPORT Team",    position: "IT Specialist, Rwanda Education Board (REB)", text: "As IT SUPPORT TEAM, We can confidently say Valens has exceptional technical skills and a strong passion for software configuration,deproyment and maintenance." },
   { name: "Claudine Mukamana",        position: "School Administrator & Client",               text: "Valens built our school management system with clean code and great UI. He communicated well throughout the entire project." },
 ];
 
@@ -358,6 +358,82 @@ function goToTestimonialPage(page) {
   currentTestimonialPage = page;
   renderTestimonials();
 }
+// --- AI RECOMMENDATIONS ---
+const aiData = {
+  frontend:  { skills: ["HTML5 & CSS3","JavaScript / TypeScript","React.js","Bootstrap","Responsive Design","CSS Animations"],       projects: ["Portfolio Website","E-Commerce Frontend","Dashboard UI","Landing Page"],                    resources: ["MDN Web Docs","Frontend Mentor","CSS Tricks","React Docs"] },
+  backend:   { skills: ["Node.js","Express.js","PHP","REST APIs","JWT Authentication","MySQL / PostgreSQL"],                          projects: ["REST API Server","Auth System","CMS Backend","School Management System"],                resources: ["Node.js Docs","PHP Manual","Postman","Express.js Guide"] },
+  fullstack: { skills: ["PERN Stack","React + Node.js","TypeScript","MongoDB","Docker Basics","Git & GitHub"],                        projects: ["Restaurant Mgmt System","Event Registration","Task Manager","SmartShop"],                  resources: ["The Odin Project","Full Stack Open","freeCodeCamp","GitHub"] },
+  database:  { skills: ["PostgreSQL","MySQL","MongoDB","SQL Queries","Database Design","Indexing & Optimization"],                    projects: ["GPA Calculator","Inventory System","Student Database","Analytics Dashboard"],             resources: ["PostgreSQL Docs","MySQL Tutorial","MongoDB University","SQLZoo"] },
+  mobile:    { skills: ["React Native","JavaScript","REST API Integration","Expo","Mobile UI Design"],                                projects: ["Mobile Todo App","Weather App","Expense Tracker","Chat App"],                           resources: ["React Native Docs","Expo Docs","Flutter Docs","Udemy"] },
+  ai:        { skills: ["Python","Data Analysis","Machine Learning Basics","Pandas & NumPy","Data Visualization"],                    projects: ["Data Science Dashboard","Prediction Model","Sentiment Analyzer","Recommendation Engine"], resources: ["Kaggle","Google Colab","Coursera ML","Scikit-learn Docs"] },
+  security:  { skills: ["Network Security","CCNA Fundamentals","Cybersecurity Basics","Linux Security","Ethical Hacking Intro"],     projects: ["Network Scanner","Password Manager","Secure Login System","Vulnerability Report"],      resources: ["Cisco NetAcad","TryHackMe","Cybrary","OWASP"] },
+  devops:    { skills: ["Git & GitHub","Docker","CI/CD Basics","Linux Commands","Cloud Deployment (Vercel/Heroku)"],                  projects: ["Automated Deployment Pipeline","Dockerized App","GitHub Actions Workflow"],              resources: ["Docker Docs","GitHub Actions","DigitalOcean Tutorials","Linux Journey"] }
+};
+
+const goalMessages = {
+  job:       "Focus on building a strong portfolio and mastering in-demand technologies employers look for.",
+  freelance: "Build diverse projects and sharpen your client communication and full-stack skills.",
+  startup:   "Learn full-stack development, product thinking, and deployment to ship your MVP fast.",
+  learn:     "Explore broadly, build small projects, and enjoy the learning journey at your own pace."
+};
+
+const levelTips = {
+  beginner:     "Start with the fundamentals. Build small projects and don't rush.",
+  intermediate: "Deepen your knowledge, contribute to open source, and build real-world apps.",
+  advanced:     "Focus on architecture, performance, and mentoring others while exploring new domains."
+};
+
+let selectedInterests = [];
+
+document.querySelectorAll('.ai-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    tag.classList.toggle('active');
+    const val = tag.dataset.val;
+    if (selectedInterests.includes(val)) {
+      selectedInterests = selectedInterests.filter(i => i !== val);
+    } else {
+      selectedInterests.push(val);
+    }
+  });
+});
+
+function generateRecommendations() {
+  const level = document.getElementById('ai-level').value;
+  const goal  = document.getElementById('ai-goal').value;
+  const resultsEl = document.getElementById('ai-results');
+
+  if (selectedInterests.length === 0) {
+    resultsEl.innerHTML = `<div class="ai-placeholder"><i class="fa fa-exclamation-circle" style="color:var(--danger)"></i><p>Please select at least one interest.</p></div>`;
+    return;
+  }
+
+  const skills = [], projects = [], resources = [];
+  selectedInterests.forEach(interest => {
+    if (aiData[interest]) {
+      aiData[interest].skills.forEach(s   => { if (!skills.includes(s))    skills.push(s); });
+      aiData[interest].projects.forEach(p => { if (!projects.includes(p))  projects.push(p); });
+      aiData[interest].resources.forEach(r=> { if (!resources.includes(r)) resources.push(r); });
+    }
+  });
+
+  resultsEl.innerHTML = `
+    <div class="ai-result-header">
+      <i class="fa fa-robot"></i>
+      <div>
+        <h3>Your Personalized Recommendations</h3>
+        <p>${goalMessages[goal]}</p>
+        <span class="ai-level-badge">${level.charAt(0).toUpperCase() + level.slice(1)}</span>
+      </div>
+    </div>
+    <p class="ai-tip"><i class="fa fa-lightbulb"></i> ${levelTips[level]}</p>
+    <div class="ai-rec-grid">
+      <div class="ai-rec-block"><h4><i class="fa fa-code"></i> Recommended Skills</h4><ul>${skills.slice(0,8).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+      <div class="ai-rec-block"><h4><i class="fa fa-folder-open"></i> Project Ideas</h4><ul>${projects.slice(0,6).map(p=>`<li>${p}</li>`).join('')}</ul></div>
+      <div class="ai-rec-block"><h4><i class="fa fa-book"></i> Learning Resources</h4><ul>${resources.slice(0,6).map(r=>`<li>${r}</li>`).join('')}</ul></div>
+    </div>
+  `;
+}
+
 document.getElementById("contact-form").addEventListener("submit", e => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();

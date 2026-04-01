@@ -20,6 +20,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#blog">Blog</a></li>
+      <li><a href="#ai">AI</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle dark/light mode"><i class="fa fa-moon"></i></button>
@@ -262,7 +263,56 @@
     <div class="blog-pagination" id="blog-pagination"></div>
   </section>
 
-  <!-- BLOG POST MODAL -->
+  <!-- AI RECOMMENDATION -->
+  <section id="ai" class="section">
+    <h2 class="section-title"><i class="fa fa-robot" style="margin-right:0.5rem"></i>AI Recommendations</h2>
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:1.5rem;font-size:0.9rem">Tell me your interests and I'll recommend the best skills and projects for you</p>
+
+    <div class="ai-wrapper">
+      <div class="ai-form-card">
+        <h3><i class="fa fa-user-circle"></i> Your Profile</h3>
+        <div class="ai-form">
+          <label>What is your current level?</label>
+          <select id="ai-level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+
+          <label>What are you interested in?</label>
+          <div class="ai-interests">
+            <button class="ai-tag" data-val="frontend">Frontend</button>
+            <button class="ai-tag" data-val="backend">Backend</button>
+            <button class="ai-tag" data-val="fullstack">Full Stack</button>
+            <button class="ai-tag" data-val="database">Database</button>
+            <button class="ai-tag" data-val="mobile">Mobile</button>
+            <button class="ai-tag" data-val="ai">AI / Data Science</button>
+            <button class="ai-tag" data-val="security">Cybersecurity</button>
+            <button class="ai-tag" data-val="devops">DevOps</button>
+          </div>
+
+          <label>What is your goal?</label>
+          <select id="ai-goal">
+            <option value="job">Get a Job</option>
+            <option value="freelance">Freelance</option>
+            <option value="startup">Build a Startup</option>
+            <option value="learn">Just Learning</option>
+          </select>
+
+          <button class="btn btn-primary" id="ai-recommend-btn" onclick="generateRecommendations()">
+            <i class="fa fa-magic"></i> Get Recommendations
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-results-card" id="ai-results">
+        <div class="ai-placeholder">
+          <i class="fa fa-robot"></i>
+          <p>Fill in your profile and click <strong>Get Recommendations</strong> to see personalized suggestions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <div id="blog-modal" class="modal hidden">
     <div class="modal-content blog-modal-content">
       <button class="modal-close" id="blog-modal-close">&times;</button>
