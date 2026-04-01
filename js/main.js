@@ -123,6 +123,39 @@ skillsToggle.addEventListener('click', () => {
     : 'Show Less <i class="fa fa-chevron-down"></i>';
 });
 
-// --- INIT ---
+// --- SKILLS TABS ---
+function filterSkills(group) {
+  document.querySelectorAll('.skill-bar-item, .skill-tag-item').forEach(el => {
+    const match = group === 'all' || el.dataset.group === group;
+    el.classList.toggle('hidden', !match);
+  });
+  // reset fills then animate
+  document.querySelectorAll('.fill').forEach(f => f.style.width = '0');
+  setTimeout(animateBars, 50);
+}
+
+function animateBars() {
+  document.querySelectorAll('.skill-bar-item:not(.hidden) .fill').forEach(fill => {
+    fill.style.width = fill.dataset.width + '%';
+  });
+}
+
+document.querySelectorAll('.skills-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.skills-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    filterSkills(tab.dataset.group);
+  });
+});
+
+// Animate bars on scroll into view
+const skillsObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) animateBars(); });
+}, { threshold: 0.2 });
+const skillsSection = document.getElementById('skills');
+if (skillsSection) skillsObserver.observe(skillsSection);
+
+
 renderProjects();
 renderBlog();
+filterSkills('frontend');

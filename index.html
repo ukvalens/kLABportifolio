@@ -47,15 +47,15 @@
     <div class="about-grid">
       <img src="images/profile.jpg" alt="Profile Photo" class="about-img" />
       <div class="about-text">
-        <p>I'm <strong>Valens UKWITEGETSE</strong>, a passionate Computer Engineer and Full Stack Developer with experience in building modern, scalable web applications. I love solving real-world problems and crafting intuitive digital experiences — from clean frontends to robust backends.</p>
-        <p style="margin-top:0.8rem;color:var(--text-muted)">I thrive in collaborative environments, enjoy learning new technologies, and am always looking for opportunities to create meaningful impact through code.</p>
+        <p>I'm <strong>Valens UKWITEGETSE</strong>, a passionate Computer Engineer and Full Stack Developer with experience in building modern, scalable web applications. I love solving real-world problems and crafting intuitive digital experiences, from clean frontends to robust backends.</p>
+
         <a href="images/resume.pdf" download class="btn btn-primary" style="margin-top:1.5rem;display:inline-block">Download CV</a>
       </div>
     </div>
 
     <!-- Skills overview -->
     <div class="about-skills-wrapper">
-      <h3 class="skills-overview-title">Technical Skills</h3>
+      <h3 class="skills-overview-title">Technical Skills Overview</h3>
       <div class="about-skills-section" id="skills-overview">
         <div class="skill-category">
           <span class="skill-label">Languages:</span>
@@ -120,28 +120,89 @@
   <!-- SKILLS -->
   <section id="skills" class="section">
     <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h3>Frontend</h3>
-        <div class="skill-bar"><span>HTML/CSS</span><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-        <div class="skill-bar"><span>JavaScript</span><div class="bar"><div class="fill" style="width:88%"></div></div></div>
-        <div class="skill-bar"><span>React</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+
+    <!-- Group filter tabs -->
+    <div class="skills-tabs">
+      <button class="skills-tab active" data-group="frontend">Frontend</button>
+      <button class="skills-tab" data-group="backend">Backend</button>
+      <button class="skills-tab" data-group="databases">Databases</button>
+      <button class="skills-tab" data-group="tools">Tools</button>
+      <button class="skills-tab" data-group="languages">Languages</button>
+    </div>
+
+    <!-- Progress bars + Tags inside one card -->
+    <div class="skills-content">
+      <div class="skills-bars-section" id="skills-bars">
+      <div class="skill-bar-item" data-group="frontend">
+        <div class="skill-bar-header"><span><i class="fab fa-html5"></i> HTML5 / CSS3</span><span>95%</span></div>
+        <div class="bar"><div class="fill" data-width="95"></div></div>
       </div>
-      <div class="skill-group">
-        <h3>Backend</h3>
-        <div class="skill-bar"><span>Node.js</span><div class="bar"><div class="fill" style="width:75%"></div></div></div>
-        <div class="skill-bar"><span>PostgreSQL</span><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+      <div class="skill-bar-item" data-group="frontend">
+        <div class="skill-bar-header"><span><i class="fab fa-js"></i> JavaScript / TypeScript</span><span>88%</span></div>
+        <div class="bar"><div class="fill" data-width="88"></div></div>
       </div>
-      <div class="skill-group">
-        <h3>Tools</h3>
-        <div class="tags">
-          <span class="tag">Git</span><span class="tag">VS Code</span><span class="tag">Figma</span><span class="tag">Docker</span>
-        </div>
+      <div class="skill-bar-item" data-group="frontend">
+        <div class="skill-bar-header"><span><i class="fab fa-react"></i> React</span><span>82%</span></div>
+        <div class="bar"><div class="fill" data-width="82"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="frontend">
+        <div class="skill-bar-header"><span><i class="fab fa-bootstrap"></i> Bootstrap</span><span>85%</span></div>
+        <div class="bar"><div class="fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="backend">
+        <div class="skill-bar-header"><span><i class="fab fa-node-js"></i> Node.js</span><span>78%</span></div>
+        <div class="bar"><div class="fill" data-width="78"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="backend">
+        <div class="skill-bar-header"><span><i class="fa fa-server"></i> Express.js / REST APIs</span><span>75%</span></div>
+        <div class="bar"><div class="fill" data-width="75"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="backend">
+        <div class="skill-bar-header"><span><i class="fab fa-php"></i> PHP</span><span>70%</span></div>
+        <div class="bar"><div class="fill" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="databases">
+        <div class="skill-bar-header"><span><i class="fa fa-database"></i> PostgreSQL</span><span>75%</span></div>
+        <div class="bar"><div class="fill" data-width="75"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="databases">
+        <div class="skill-bar-header"><span><i class="fa fa-database"></i> MySQL</span><span>78%</span></div>
+        <div class="bar"><div class="fill" data-width="78"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="databases">
+        <div class="skill-bar-header"><span><i class="fa fa-leaf"></i> MongoDB</span><span>65%</span></div>
+        <div class="bar"><div class="fill" data-width="65"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="languages">
+        <div class="skill-bar-header"><span><i class="fab fa-python"></i> Python</span><span>80%</span></div>
+        <div class="bar"><div class="fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="languages">
+        <div class="skill-bar-header"><span><i class="fab fa-java"></i> Java</span><span>72%</span></div>
+        <div class="bar"><div class="fill" data-width="72"></div></div>
+      </div>
+      <div class="skill-bar-item" data-group="languages">
+        <div class="skill-bar-header"><span><i class="fa fa-code"></i> C / C++</span><span>68%</span></div>
+        <div class="bar"><div class="fill" data-width="68"></div></div>
+      </div>
+      </div>
+
+      <!-- Skill tags -->
+      <div class="skills-tags-section" id="skills-tags">
+      <div class="skill-tag-item" data-group="tools"><i class="fab fa-git-alt"></i> Git</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fab fa-github"></i> GitHub</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fa fa-code"></i> VS Code</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fa fa-coffee"></i> NetBeans</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fa fa-server"></i> XAMPP</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fab fa-linux"></i> Linux (Ubuntu)</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fab fa-windows"></i> Windows</div>
+      <div class="skill-tag-item" data-group="tools"><i class="fab fa-google"></i> Google Suite</div>
+      <div class="skill-tag-item" data-group="frontend"><i class="fa fa-mobile-alt"></i> Responsive Design</div>
+      <div class="skill-tag-item" data-group="backend"><i class="fa fa-plug"></i> REST APIs</div>
+      <div class="skill-tag-item" data-group="databases"><i class="fa fa-table"></i> SQL</div>
       </div>
     </div>
   </section>
-
-  <!-- EXPERIENCE -->
   <section id="experience" class="section section-alt">
     <h2 class="section-title">Experience</h2>
     <div class="timeline">
