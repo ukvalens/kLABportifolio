@@ -264,10 +264,34 @@
   <!-- BLOG -->
   <section id="blog" class="section">
     <h2 class="section-title">Blog</h2>
-    <div class="blog-grid" id="blog-grid">
-      <!-- Blog cards injected by JS -->
+    <div class="blog-filter-bar">
+      <button class="blog-filter-btn active" data-cat="all">All</button>
+      <button class="blog-filter-btn" data-cat="React">React</button>
+      <button class="blog-filter-btn" data-cat="PHP">PHP</button>
+      <button class="blog-filter-btn" data-cat="Database">Database</button>
+      <button class="blog-filter-btn" data-cat="Career">Career</button>
     </div>
+    <div class="blog-grid" id="blog-grid"></div>
+    <div class="blog-pagination" id="blog-pagination"></div>
   </section>
+
+  <!-- BLOG POST MODAL -->
+  <div id="blog-modal" class="modal hidden">
+    <div class="modal-content blog-modal-content">
+      <button class="modal-close" id="blog-modal-close">&times;</button>
+      <div id="blog-modal-body"></div>
+      <!-- COMMENTS -->
+      <div class="blog-comments">
+        <h3>Comments</h3>
+        <div id="comments-list"></div>
+        <form id="comment-form">
+          <input type="text" id="comment-name" placeholder="Your Name" required />
+          <textarea id="comment-text" rows="3" placeholder="Write a comment..." required></textarea>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="section section-alt">
