@@ -78,8 +78,9 @@ body {
 .btn-outline:hover { background: #fff; color: var(--primary); }
 
 /* SECTIONS */
-.section { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; scroll-margin-top: 70px; }
-.section-alt { background: var(--card-bg); max-width: 100%; padding: 1.5rem 2rem; scroll-margin-top: 70px; }
+.section { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; scroll-margin-top: 70px; min-height: calc(100vh - 70px); display: flex; flex-direction: column; justify-content: center; }
+.section-alt { background: var(--card-bg); max-width: 100%; padding: 1.5rem 2rem; scroll-margin-top: 70px; min-height: calc(100vh - 70px); display: flex; flex-direction: column; justify-content: center; }
+.section-alt > * { max-width: 1100px; margin-left: auto; margin-right: auto; width: 100%; }
 #home, #about, #projects, #skills, #experience, #blog, #testimonials, #contact { scroll-margin-top: 70px; }
 .section-alt > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
 .section-title {
