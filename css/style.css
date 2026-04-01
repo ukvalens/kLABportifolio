@@ -91,6 +91,14 @@ body {
 .about-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); }
 .about-text p { line-height: 1.7; }
 .about-skills-wrapper { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.5rem; }
+.about-skills-inner { display: grid; grid-template-columns: 1fr 220px; gap: 1.5rem; align-items: start; }
+.about-skills-left { display: flex; flex-direction: column; }
+.about-certs { border-left: 2px solid var(--border); padding-left: 1.2rem; }
+.cert-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.6rem; }
+.cert-list li { display: flex; align-items: flex-start; gap: 0.7rem; }
+.cert-list i { color: var(--primary); font-size: 1rem; margin-top: 0.2rem; flex-shrink: 0; }
+.cert-list strong { display: block; font-size: 0.85rem; }
+.cert-list span { font-size: 0.75rem; color: var(--text-muted); }
 .skills-overview-title { color: var(--primary); margin-bottom: 0.6rem; font-size: 1.1rem; }
 .about-skills-section { display: flex; flex-direction: column; gap: 0.4rem; }
 .skill-category { display: flex; align-items: flex-start; gap: 0.8rem; flex-wrap: wrap; }
@@ -288,6 +296,8 @@ footer { background: var(--sidebar-bg); color: #c7d2fe; font-size: 0.9rem; paddi
   .about-img { margin: 0 auto; width: 120px; height: 120px; }
   .skill-category { flex-direction: column; gap: 0.4rem; }
   .skill-label { min-width: unset; }
+  .about-skills-inner { grid-template-columns: 1fr; }
+  .about-certs { border-left: none; border-top: 2px solid var(--border); padding-left: 0; padding-top: 1rem; }
 
   /* PROJECTS */
   .projects-grid { grid-template-columns: 1fr; }
