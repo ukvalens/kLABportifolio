@@ -163,15 +163,24 @@ body {
 .skill-tag-item.hidden { display: none; }
 
 /* TIMELINE */
-.timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-.timeline-item { position: relative; padding-left: 1.2rem; }
-.timeline-item::before { content: ''; position: absolute; left: 0; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+.timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.timeline-item { position: relative; padding-left: 1.5rem; }
+.timeline-item::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px rgba(79,70,229,0.2); }
 .timeline-dot { display: none; }
-.timeline-content { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.8rem; height: 100%; }
-.timeline-content h3 { margin-bottom: 0.1rem; font-size: 0.9rem; }
-.timeline-meta { display: block; font-size: 0.75rem; color: var(--primary); margin-bottom: 0.1rem; }
-.timeline-date { font-size: 0.75rem; color: var(--text-muted); }
-.timeline-content p { margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
+.timeline-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  height: 100%;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.timeline-content:hover { box-shadow: 0 4px 16px rgba(79,70,229,0.12); transform: translateY(-2px); }
+.timeline-content h3 { margin-bottom: 0.3rem; font-size: 1.05rem; color: var(--text); }
+.timeline-meta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; color: var(--primary); margin-bottom: 0.3rem; font-weight: 600; }
+.timeline-date { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; color: var(--text-muted); background: var(--bg); padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.5rem; }
+.timeline-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 0.3rem; }
 
 /* BLOG */
 .blog-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }

@@ -280,7 +280,46 @@ document.getElementById("project-modal").addEventListener("click", e => {
   if (e.target === e.currentTarget) e.currentTarget.classList.add("hidden");
 });
 
-// --- TESTIMONIALS ---
+// --- EXPERIENCE ---
+const experiences = [
+  { title: "Full Stack Software Development Trainee", meta: "kLab Academy — Kigali, Rwanda",              date: "30/03/2025 – 06/2025 (3 months)", desc: "Intensive full stack training covering modern frontend and backend technologies with project-based learning." },
+  { title: "ICT & Software Deployment Intern",        meta: "Rwanda Education Board (REB) — Kigali, Rwanda", date: "04/2025 – Present",               desc: "Deploying and configuring ICT devices via Microsoft Intune, installing software, and maintaining the asset database for educational technology support." },
+  { title: "Software Developer Intern",               meta: "NIRDA — Kigali, Rwanda",                    date: "03/2025 – 05/2025",               desc: "Developed and maintained features for a Knowledge Management System (KMS) using PHP and MySQL." },
+  { title: "Freelance Full-Stack Developer",          meta: "Self-Employed",                             date: "2022 – Present",                  desc: "Built and deployed custom web apps for clients using React, Node.js, MongoDB, Express.js and TypeScript." },
+  { title: "Computer Science Teacher",                meta: "GS Gicura",                                 date: "2021 (3 months)",                 desc: "Instructed students in computer science, programming logic, and digital literacy." },
+];
+
+const EXP_PER_PAGE = 2;
+let currentExpPage = 1;
+
+function renderExperience() {
+  const total = Math.ceil(experiences.length / EXP_PER_PAGE);
+  if (currentExpPage > total) currentExpPage = 1;
+  const start = (currentExpPage - 1) * EXP_PER_PAGE;
+  const paged = experiences.slice(start, start + EXP_PER_PAGE);
+
+  document.getElementById('experience-grid').innerHTML = paged.map(e => `
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>${e.title}</h3>
+        <span class="timeline-meta">${e.meta}</span>
+        <span class="timeline-date">${e.date}</span>
+        <p>${e.desc}</p>
+      </div>
+    </div>
+  `).join('');
+
+  const dotsEl = document.getElementById('experience-pagination');
+  if (total <= 1) { dotsEl.innerHTML = ''; return; }
+  dotsEl.innerHTML = Array.from({ length: total }, (_, i) => `
+    <button class="blog-dot ${i + 1 === currentExpPage ? 'active' : ''}" onclick="goToExpPage(${i + 1})"></button>
+  `).join('');
+}
+
+function goToExpPage(page) {
+  currentExpPage = page;
+  renderExperience();
+}
 const testimonials = [
   { name: "Dr. Jean Pierre Habimana", position: "Research Director, NIRDA — Kigali, Rwanda", text: "Valens delivered our Knowledge Management System with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
   { name: "Eng. Alice Uwimana",       position: "ICT Manager, Rwanda Education Board (REB)",  text: "Valens configured and deployed ICT devices efficiently across our institution. He is reliable, detail-oriented, and a great team player." },
@@ -402,5 +441,6 @@ const skillsExtraEl = document.querySelector('.skills-extra');
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 renderProjects();
 renderBlog();
+renderExperience();
 renderTestimonials();
 filterSkills('frontend');
