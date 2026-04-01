@@ -280,7 +280,45 @@ document.getElementById("project-modal").addEventListener("click", e => {
   if (e.target === e.currentTarget) e.currentTarget.classList.add("hidden");
 });
 
-// --- CONTACT FORM ---
+// --- TESTIMONIALS ---
+const testimonials = [
+  { name: "Dr. Jean Pierre Habimana", position: "Research Director, NIRDA — Kigali, Rwanda", text: "Valens delivered our Knowledge Management System with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
+  { name: "Eng. Alice Uwimana",       position: "ICT Manager, Rwanda Education Board (REB)",  text: "Valens configured and deployed ICT devices efficiently across our institution. He is reliable, detail-oriented, and a great team player." },
+  { name: "Patrick Niyonzima",        position: "Entrepreneur & Freelance Client",             text: "Working with Valens on our web application was a great experience. He understood our requirements quickly and built exactly what we needed." },
+  { name: "Marie Claire Ingabire",    position: "Full Stack Developer & Peer, kLab Academy",  text: "Valens is one of the most dedicated developers I have worked with. His PERN stack knowledge and problem-solving ability stand out." },
+  { name: "Mr. Eric Nshimiyimana",    position: "Software Engineering Instructor, kLab Academy", text: "As his instructor, I can confidently say Valens has exceptional technical skills and a strong passion for software development." },
+  { name: "Claudine Mukamana",        position: "School Administrator & Client",               text: "Valens built our school management system with clean code and great UI. He communicated well throughout the entire project." },
+];
+
+const TESTIMONIALS_PER_PAGE = 3;
+let currentTestimonialPage = 1;
+
+function renderTestimonials() {
+  const total = Math.ceil(testimonials.length / TESTIMONIALS_PER_PAGE);
+  if (currentTestimonialPage > total) currentTestimonialPage = 1;
+  const start = (currentTestimonialPage - 1) * TESTIMONIALS_PER_PAGE;
+  const paged = testimonials.slice(start, start + TESTIMONIALS_PER_PAGE);
+
+  document.getElementById('testimonials-grid').innerHTML = paged.map(t => `
+    <div class="testimonial-card">
+      <div class="testimonial-avatar"><i class="fa fa-user"></i></div>
+      <p>"${t.text}"</p>
+      <strong>${t.name}</strong>
+      <span>${t.position}</span>
+    </div>
+  `).join('');
+
+  const dotsEl = document.getElementById('testimonials-pagination');
+  if (total <= 1) { dotsEl.innerHTML = ''; return; }
+  dotsEl.innerHTML = Array.from({ length: total }, (_, i) => `
+    <button class="blog-dot ${i + 1 === currentTestimonialPage ? 'active' : ''}" onclick="goToTestimonialPage(${i + 1})"></button>
+  `).join('');
+}
+
+function goToTestimonialPage(page) {
+  currentTestimonialPage = page;
+  renderTestimonials();
+}
 document.getElementById("contact-form").addEventListener("submit", e => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -363,4 +401,5 @@ const skillsExtraEl = document.querySelector('.skills-extra');
 // --- INIT ---
 renderProjects();
 renderBlog();
+renderTestimonials();
 filterSkills('frontend');
