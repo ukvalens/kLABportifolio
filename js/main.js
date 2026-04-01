@@ -399,6 +399,7 @@ const skillsToggleBtn = document.getElementById('skills-toggle');
 const skillsExtraEl = document.querySelector('.skills-extra');
 
 // --- INIT ---
+document.getElementById('footer-year').textContent = new Date().getFullYear();
 renderProjects();
 renderBlog();
 renderTestimonials();
