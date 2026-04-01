@@ -124,6 +124,8 @@ body {
 .project-links { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
 .project-links a { font-size: 0.85rem; color: var(--primary); text-decoration: none; }
 .project-links a:hover { text-decoration: underline; }
+.demo-link { background: var(--primary); color: #fff !important; padding: 0.25rem 0.7rem; border-radius: 6px; }
+.demo-link:hover { background: var(--primary-dark); text-decoration: none !important; }
 
 /* SKILLS */
 .skills-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }

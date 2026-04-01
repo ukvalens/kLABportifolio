@@ -36,6 +36,7 @@ function renderProjects(filter = "all") {
         <p>${p.desc}</p>
         <div class="project-links">
           <a href="${p.github}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="${p.demo || '#'}" target="_blank" class="demo-link"><i class="fa fa-external-link-alt"></i> Live Demo</a>
         </div>
       </div>
     </div>
