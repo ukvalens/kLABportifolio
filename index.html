@@ -42,18 +42,64 @@
   <!-- ABOUT -->
   <section id="about" class="section">
     <h2 class="section-title">About Me</h2>
+
+    <!-- Top: image + bio + CV -->
     <div class="about-grid">
       <img src="images/profile.jpg" alt="Profile Photo" class="about-img" />
       <div class="about-text">
-        <p>I'm a passionate developer with experience in building modern web applications. I love solving problems and creating intuitive user experiences.</p>
-        <ul class="about-skills">
-          <li>JavaScript / TypeScript</li>
-          <li>React / Node.js</li>
-          <li>UI/UX Design</li>
-          <li>PostgreSQL</li>
-        </ul>
-        <a href="images/resume.pdf" download class="btn btn-primary">Download CV</a>
+        <p>I'm <strong>Valens UKWITEGETSE</strong>, a passionate Computer Engineer and Full Stack Developer with experience in building modern, scalable web applications. I love solving real-world problems and crafting intuitive digital experiences — from clean frontends to robust backends.</p>
+        <p style="margin-top:0.8rem;color:var(--text-muted)">I thrive in collaborative environments, enjoy learning new technologies, and am always looking for opportunities to create meaningful impact through code.</p>
+        <a href="images/resume.pdf" download class="btn btn-primary" style="margin-top:1.5rem;display:inline-block">Download CV</a>
       </div>
+    </div>
+
+    <!-- Skills overview -->
+    <div class="about-skills-wrapper">
+      <h3 class="skills-overview-title">Technical Skills</h3>
+      <div class="about-skills-section" id="skills-overview">
+        <div class="skill-category">
+          <span class="skill-label">Languages:</span>
+          <ul class="about-skills">
+            <li>JavaScript/TypeScript</li><li>Python</li><li>Java</li><li>C</li><li>C++</li><li>PHP</li><li>HTML5</li><li>CSS3</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <span class="skill-label">Frontend:</span>
+          <ul class="about-skills">
+            <li>React</li><li>Bootstrap</li><li>Responsive Web Design</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <span class="skill-label">Backend:</span>
+          <ul class="about-skills">
+            <li>Node.js</li><li>Express.js</li><li>REST APIs</li>
+          </ul>
+        </div>
+        <!-- hidden by default -->
+        <div class="skills-extra hidden">
+          <div class="skill-category">
+            <span class="skill-label">Databases:</span>
+            <ul class="about-skills">
+              <li>PostgreSQL</li><li>MongoDB</li><li>MySQL</li><li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <span class="skill-label">Tools &amp; Platforms:</span>
+            <ul class="about-skills">
+              <li>Git</li><li>GitHub</li><li>VS Code</li><li>NetBeans</li><li>XAMPP</li><li>Microsoft Office</li><li>Google Suite</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <span class="skill-label">Operating Systems:</span>
+            <ul class="about-skills">
+              <li>Windows</li><li>Linux (Ubuntu)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline show-more-btn" id="skills-toggle" style="margin-top:1rem;border-color:var(--primary);color:var(--primary)">
+        Show More <i class="fa fa-chevron-down"></i>
+      </button>
     </div>
   </section>
 

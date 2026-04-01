@@ -112,6 +112,17 @@ document.getElementById("hamburger").addEventListener("click", () => {
   document.querySelector(".nav-links").classList.toggle("open");
 });
 
+// --- SHOW MORE SKILLS ---
+const skillsToggle = document.getElementById('skills-toggle');
+const skillsExtra = document.querySelector('.skills-extra');
+skillsToggle.addEventListener('click', () => {
+  skillsExtra.classList.toggle('hidden');
+  skillsToggle.classList.toggle('open');
+  skillsToggle.innerHTML = skillsExtra.classList.contains('hidden')
+    ? 'Show More <i class="fa fa-chevron-down"></i>'
+    : 'Show Less <i class="fa fa-chevron-down"></i>';
+});
+
 // --- INIT ---
 renderProjects();
 renderBlog();

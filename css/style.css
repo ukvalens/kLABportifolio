@@ -89,8 +89,21 @@ body {
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: start; }
 .about-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); }
-.about-skills { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.5rem; }
+.about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: start; margin-bottom: 2.5rem; }
+.about-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); }
+.about-text p { line-height: 1.7; }
+.about-skills-wrapper { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 2rem; }
+.skills-overview-title { color: var(--primary); margin-bottom: 1.2rem; font-size: 1.1rem; }
+.about-skills-section { display: flex; flex-direction: column; gap: 0.8rem; }
+.skill-category { display: flex; align-items: flex-start; gap: 0.8rem; flex-wrap: wrap; }
+.skill-label { font-weight: 600; color: var(--primary); min-width: 140px; padding-top: 0.3rem; font-size: 0.9rem; }
+.about-skills { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .about-skills li { background: var(--primary); color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; }
+.skills-extra { display: flex; flex-direction: column; gap: 0.8rem; }
+.skills-extra.hidden { display: none; }
+.show-more-btn { display: flex; align-items: center; gap: 0.5rem; background: none; }
+.show-more-btn i { transition: transform 0.3s; }
+.show-more-btn.open i { transform: rotate(180deg); }
 
 /* PROJECTS */
 .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
