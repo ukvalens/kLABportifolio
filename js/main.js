@@ -321,7 +321,7 @@ function goToExpPage(page) {
   renderExperience();
 }
 const testimonials = [
-  { name: "Dr. Serge MBARAGA", position: "Director of Technology Monitoring and Knowledge Management Unit., NIRDA, Kigali, Rwanda", text: "Valens did internship with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
+  { name: "MR. Evariste HATEGEKIYAREMYE", position: "My Supervisor, NIRDA, Kigali, Rwanda", text: "Valens did internship with great professionalism. His PHP and MySQL skills are impressive and he always met deadlines." },
   { name: "Mr. JMV TUYISHIME",       position: "Programmer and Animation Engineer, Rwanda Education Board (REB)",  text: "Valens configured and deployed ICT devices efficiently across our institution. He is reliable, detail-oriented, and a great team player." },
   { name: "Theophile NIYIGABA",        position: "Computer ENGINEER Student, UNIVERSITY OF RWANDA",             text: "Working with Valens on web application was a great experience. He understood software requirements specification." },
   { name: "Mr. Robert NIYITANGA",    position: "Developer and Technical facilitator, kLab Academy",  text: "Valens is committed to showing his skills. His PERN stack knowledge and problem-solving ability stand out." },
@@ -450,9 +450,25 @@ document.getElementById("contact-form").addEventListener("submit", e => {
     msg.className = "form-msg error";
     return;
   }
-  msg.textContent = "Message sent! I'll get back to you soon.";
-  msg.className = "form-msg";
-  e.target.reset();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  emailjs.send('service_ti7h5a9', 'template_r57supx', {
+    from_name: name,
+    from_email: email,
+    message: message
+  }).then(() => {
+    msg.textContent = "Message sent! I'll get back to you soon.";
+    msg.className = "form-msg";
+    e.target.reset();
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }).catch(() => {
+    msg.textContent = "Failed to send. Please try again or email me directly.";
+    msg.className = "form-msg error";
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  });
 });
 
 // --- DARK MODE ---
@@ -514,6 +530,7 @@ const skillsToggleBtn = document.getElementById('skills-toggle');
 const skillsExtraEl = document.querySelector('.skills-extra');
 
 // --- INIT ---
+emailjs.init('AX7q-p8_c3Bni5sFM');
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 renderProjects();
 renderBlog();
