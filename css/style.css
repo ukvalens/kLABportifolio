@@ -395,3 +395,10 @@ footer { background: var(--sidebar-bg); color: #c7d2fe; font-size: 0.9rem; paddi
   .ai-wrapper { grid-template-columns: 260px 1fr; }
   .ai-rec-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* BLOG LIKE & COMMENT COUNT */
+.blog-card-actions { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.blog-like-btn { display: flex; align-items: center; gap: 0.3rem; background: none; border: 1px solid var(--border); border-radius: 20px; padding: 0.25rem 0.7rem; cursor: pointer; font-size: 0.8rem; color: var(--text-muted); transition: all 0.2s; }
+.blog-like-btn:hover { border-color: #e11d48; color: #e11d48; }
+.blog-like-btn.liked { border-color: #e11d48; color: #e11d48; }
+.blog-comment-count { display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; color: var(--text-muted); }
