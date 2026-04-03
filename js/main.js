@@ -453,7 +453,7 @@ document.getElementById("contact-form").addEventListener("submit", e => {
   const btn = e.target.querySelector('button[type="submit"]');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  emailjs.send('service_ti7h5a9', 'template_r57supx', {
+  emailjs.send('service_zr1t437', 'template_r57supx', {
     from_name: name,
     from_email: email,
     message: message
