@@ -151,8 +151,8 @@ const blogs = [
   }
 ];
 
-const blogComments = {};
-const blogLikes = {};
+const blogComments = JSON.parse(localStorage.getItem('blogComments') || '{}');
+const blogLikes = JSON.parse(localStorage.getItem('blogLikes') || '{}');
 
 function renderBlogContent(content) {
   return content.map(block => {
@@ -186,8 +186,8 @@ function renderBlog(cat) {
         <div class="blog-card-footer">
           <span class="blog-date"><i class="fa fa-calendar"></i> ${b.date}</span>
           <div class="blog-card-actions">
-            <button class="blog-like-btn" onclick="likeBlog(event, ${b.id})">
-              <i class="fa fa-heart"></i> <span id="likes-${b.id}">${blogLikes[b.id] || 0}</span>
+            <button class="blog-like-btn ${blogLikes[b.id] ? 'liked' : ''}" onclick="likeBlog(event, ${b.id})" style="${blogLikes[b.id] ? 'border-color:#e11d48;color:#e11d48' : ''}">
+              <i class="fa fa-heart" style="${blogLikes[b.id] ? 'color:#e11d48' : ''}"></i> <span id="likes-${b.id}">${blogLikes[b.id] || 0}</span>
             </button>
             <span class="blog-comment-count"><i class="fa fa-comment"></i> <span id="comments-count-${b.id}">${(blogComments[b.id] || []).length}</span></span>
             <button class="btn btn-primary blog-read-btn" onclick="openBlogPost(${b.id})">Read More</button>
@@ -213,6 +213,7 @@ function goToBlogPage(page, cat) {
 function likeBlog(e, id) {
   e.stopPropagation();
   blogLikes[id] = (blogLikes[id] || 0) + 1;
+  localStorage.setItem('blogLikes', JSON.stringify(blogLikes));
   const el = document.getElementById('likes-' + id);
   if (el) el.textContent = blogLikes[id];
   const btn = e.currentTarget;
@@ -242,6 +243,7 @@ function openBlogPost(id) {
     if (!name || !text) return;
     if (!blogComments[id]) blogComments[id] = [];
     blogComments[id].push({ name, text });
+    localStorage.setItem('blogComments', JSON.stringify(blogComments));
     document.getElementById('comment-name').value = '';
     document.getElementById('comment-text').value = '';
     list.innerHTML = blogComments[id].map(c => `<div class="comment-item"><strong>${c.name}</strong><p>${c.text}</p></div>`).join('');
