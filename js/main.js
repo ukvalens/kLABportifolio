@@ -463,6 +463,7 @@ document.getElementById("contact-form").addEventListener("submit", e => {
     e.target.reset();
     btn.textContent = 'Send Message';
     btn.disabled = false;
+    setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 6000);
   }).catch(() => {
     msg.textContent = "Failed to send. Please try again or email me directly.";
     msg.className = "form-msg error";
