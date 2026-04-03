@@ -102,7 +102,7 @@ const blogs = [
     id: 3,
     title: "My Journey: From Student to Full Stack Developer",
     category: "Career",
-    date: "October 2024",
+    date: "May 2022",
     desc: "How I went from studying Computer Engineering to building real-world full-stack applications.",
     content: [
       { type: "p", text: "My journey into software development started during my Computer Engineering studies." },
@@ -478,7 +478,12 @@ document.getElementById("contact-form").addEventListener("submit", e => {
   emailjs.send('service_zr1t437', 'template_r57supx', {
     from_name: name,
     from_email: email,
-    message: message
+    message: message,
+    to_name: 'Valens',
+    reply_to: email,
+    sender_name: name,
+    sender_email: email,
+    user_message: message
   }).then(() => {
     msg.textContent = "Message sent! I'll get back to you soon.";
     msg.className = "form-msg";
