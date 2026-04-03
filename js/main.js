@@ -32,8 +32,8 @@ function renderProjects(filter) {
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
         <div class="project-links">
-          <a href="${p.github}" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="${p.demo || '#'}" target="_blank" class="demo-link"><i class="fa fa-external-link-alt"></i> Live Demo</a>
+          <a href="${p.github}" target="_blank" class="demo-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> GitHub</a>
+          <a href="${p.demo || '#'}" target="_blank" onclick="event.stopPropagation()" style="font-size:0.85rem;color:var(--primary);text-decoration:none"><i class="fa fa-external-link-alt"></i> Live Demo</a>
         </div>
       </div>
     </div>
