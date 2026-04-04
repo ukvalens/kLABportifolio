@@ -11,6 +11,9 @@ const projects = [
   { id: 9,  title: "GPA Calculator",                desc: "A web-based GPA calculator built with PHP to help students compute and track academic performance.", lang: "PHP",      category: "backend",  demo: "", github: "https://github.com/ukvalens/gpa" },
   { id: 10, title: "Crosswalk Game",                desc: "A fun crosswalk browser game built with HTML, CSS, and JavaScript.",                             lang: "HTML",       category: "frontend", demo: "", github: "https://github.com/ukvalens/game_croswalk" },
   { id: 11, title: "ExpertHub",                     desc: "A platform connecting experts and clients, built with PHP and MySQL.",                            lang: "PHP",        category: "backend",  demo: "", github: "https://github.com/ukvalens/ExpertHub" },
+  { id: 12, title: "UI/UX Design - Portfolio",      desc: "Designed the portfolio UI/UX using Figma including wireframes, color schema, and component layout.", lang: "Figma",     category: "design",   demo: "", github: "https://github.com/ukvalens/kLABportifolio" },
+  { id: 13, title: "UI/UX Design - SmartShop",      desc: "Designed the SmartShop e-commerce interface using Figma with product cards, cart flow, and responsive layouts.", lang: "Figma", category: "design",   demo: "", github: "https://github.com/ukvalens/SmartShop" },
+  { id: 14, title: "UI/UX Design - School System",  desc: "Created wireframes and UI mockups for the school management system dashboard using Figma.",       lang: "Figma",     category: "design",   demo: "", github: "https://github.com/ukvalens/sms" },
 ];
 
 const PROJECTS_PER_PAGE = 3;
