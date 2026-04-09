@@ -96,6 +96,8 @@ body {
 .about-certs { border-left: 2px solid var(--border); padding-left: 1.2rem; }
 .cert-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.6rem; }
 .cert-list li { display: flex; align-items: flex-start; gap: 0.7rem; }
+.cert-view-btn { margin-left: auto; flex-shrink: 0; display: inline-flex; align-items: center; padding: 0.25rem 0.7rem; font-size: 0.72rem; border: 1px solid var(--primary); color: var(--primary); border-radius: 4px; text-decoration: none; transition: background 0.2s, color 0.2s; white-space: nowrap; font-weight: 600; }
+.cert-view-btn:hover { background: var(--primary); color: #fff; }
 .cert-list i { color: var(--primary); font-size: 1rem; margin-top: 0.2rem; flex-shrink: 0; }
 .cert-list strong { display: block; font-size: 0.85rem; }
 .cert-list span { font-size: 0.75rem; color: var(--text-muted); }
